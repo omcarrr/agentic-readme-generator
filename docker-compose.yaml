@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  readme-agent:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mounts a local folder named "target_codebase" into the container
+      # This allows you to place code you want to test in a local folder
+      - ./target_codebase:/workspace/target_codebase
+    env_file:
+      - .env
